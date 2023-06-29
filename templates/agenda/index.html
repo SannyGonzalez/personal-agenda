@@ -1,0 +1,23 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Eventos{% endblock title %}
+
+{####################################################}
+
+{% block content %}
+<table class="list">
+    <tr>
+        <th>Evento</th>
+        <th>Lugar</th>
+        <th>Fecha</th>
+    </tr>
+    {% for evento in eventos %}
+    <tr>
+        <td><a href="{% url 'detalles_evento' id=evento.id %}" class="nombre">{{ evento }}</a></td>
+        <td>{{ evento.lugar }}</td>
+        <td>{{ evento.fecha }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'crear_evento' %}"><button class="crear-btn">Crear evento</button></a>
+{% endblock content %}

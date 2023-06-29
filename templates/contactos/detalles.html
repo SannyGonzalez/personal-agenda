@@ -1,0 +1,22 @@
+{% extends 'layouts/base.html' %}
+{#############################################################################################################}
+
+{% block title %}{{ contacto.nombre }}{% endblock title %}
+
+{#############################################################################################################}
+
+{% block content %}
+<ul class="list-2">
+        <li><b>Nombre:</b> {{ contacto.nombre }}</li>
+        <li><b>Apellido:</b> {{ contacto.apellido }}</li>
+        <li><b>Numero:</b> {{ contacto.numero }}</li>
+        <li><b>Email:</b> {{ contacto.email }}</li>
+        <li><b>Grupo:</b> {{ contacto.grupo }}</li>
+        <li><b>Fecha de creacion:</b> {{ contacto.fecha_inclusion }}</li>
+        <li><b>Notas:</b> {{ contacto.notas }}</li>
+</ul>
+<div>
+        <a href="{% url 'editar_contacto' id=contacto.id %}"><button class="crear-btn">Editar</button>
+        <a href="{% url 'borrar_contacto' id=contacto.id %}"><button class="borrar-btn">Borrar</button>
+</div>
+{% endblock content %}

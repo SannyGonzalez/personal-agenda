@@ -1,0 +1,21 @@
+{% extends 'layouts/base.html' %}
+{################################################################################################}
+
+{% block title %}Editar contacto{% endblock title %}
+
+{################################################################################################}
+
+{% block styles %}
+{% load static %}
+<link rel="stylesheet" href="{% static './css/forms.css' %}">
+{% endblock styles %}
+
+{################################################################################################}
+
+{% block content %}
+<form action="{% url 'editar_contacto' id=id %}" method="POST">
+{% csrf_token %}
+{{ formulario }}
+<button type="submit" name="Crear" class="crear-btn">Crear</button>
+</form>
+{% endblock content %}

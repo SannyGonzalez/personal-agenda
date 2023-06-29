@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Contactos{% endblock title %}
+
+{####################################################}
+
+{% block content %}
+{% include '../layouts/partials/buscar.html' %}
+<table class="list">
+    <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Telefono</th>
+    </tr>
+    {% for contacto in contactos %}
+    <tr>
+        <td><a href="{% url 'detalles_contacto' id=contacto.id %}" class="nombre">{{ contacto }}</a></td>
+        <td>{{ contacto.apellido }}</td>
+        <td>{{ contacto.numero }}</td>
+    </tr>
+    {% endfor %}
+</table>
+<a href="{% url 'crear_contacto' %}"><button class="crear-btn">Crear contacto</button></a>
+{% endblock content %}
