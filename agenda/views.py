@@ -3,7 +3,7 @@ from .models import Evento
 from .forms import EventForm
 
 def index(request):
-    eventos = Evento.objects.all()
+    eventos = Evento.objects.get().order_by('fecha')
     contexto = {
         'eventos' : eventos
     }

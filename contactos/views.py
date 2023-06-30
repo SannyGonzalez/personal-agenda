@@ -6,7 +6,7 @@ from .forms import ContactForm
 
 #Esta es la vista del indice, con la logica del buscador
 def index(request):
-    contactos = Contacto.objects.filter(nombre__contains=request.GET.get('buscar', ''))
+    contactos = Contacto.objects.filter(nombre__contains=request.GET.get('buscar', '')).filter(apellido__contains=request.GET.get('buscar', ''))
     contexto = {
         'contactos' : contactos
     }
